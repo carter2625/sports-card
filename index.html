@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <figure class="card">
+  <img class="team_logo" src="https://cdn.freebiesupply.com/images/large/2x/new-york-yankees-logo-transparent.png"/>
+  <img class="player" src="https://static01.nyt.com/images/2015/01/04/sports/DOG-mattingly/DOG-mattingly-superJumbo.jpg?quality=75&auto=webp"/>
+  <figcaption class="name">Don<br/> Mattingly</figcaption>
+ </figure>
+      </div>
+    <div class="flip-card-back">
+      <div class="stats-nameHeader">Player Name: </div>
+              <div class="stats-name">Don Mattingly</div>
+              <div class="stats-birthday">Date of Birth:</div>
+              <div class="stats-dob">April 20, 1961</div>
+              <div class="stats-namePosition">Position:</div>
+              <div class="stats-position">Infielder</div>
+              <div class="career-stats">Career Stats:</div>
+              <div class="career-avg">BA .307
+              <div class="career-hits">Hits 2,153</div>
+              <div class="career-rbis">RBIs 1,099</div>
+              <div class="career-hrs">HRs 222</div>
+    </div>
+  </div>
+</div>
+</div>
+  
+
+<button class="add">Clone The Card </button>
+<button class="delete">Delete The Clone</button>
+<button class="changeName">Change Name</button>
+  
+
+  
+
+  <style>
+
+:root{
+  --yankee-blue: #003087 solid; 
+    }
+
+body {
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-size: small;
+}
+.card {
+  position: absolute;
+  height: 300px;
+  width: 200px;
+  border: 15px var(--yankee-blue);
+
+}
+.card:before, .card:after {
+  content: '';
+}
+.card:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 8;
+  border-top: 60px solid #003087;
+  border-right: 60px solid transparent;
+}
+.card:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  border-top: 62px solid black;
+  border-right: 62px solid transparent;
+}
+.card .team_logo {
+  position: absolute;
+  z-index: 15;
+  top: 10px;
+  left: 10px;
+  max-width: 60px;
+  max-height: 32px;
+}
+.card .player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 296px;
+  width: 196px;
+  border: 2px black solid;
+}
+.card figcaption {
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  width: 66%;
+  height: 30px;
+  text-align: center;
+  font-size: 100%;
+  background: white;
+  border: 2px #e4002c solid;
+  z-index: 10;
+}
+.card figcaption:before, .card figcaption:after {
+  content: '';
+}
+.card figcaption:before {
+  position: absolute;
+  bottom: 32px;
+  right: -2px;
+  z-index: 18;
+  border-bottom: 15px solid #003087;
+  border-left: 15px solid transparent;
+}
+.card figcaption:after {
+  position: absolute;
+  bottom: 32px;
+  right: -2px;
+  z-index: 15;
+  border-bottom: 17px solid black;
+  border-left: 17px solid transparent;
+}
+
+
+
+.flip-card {
+  background-color: transparent;
+  width: 230px;
+  height: 330px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; 
+}
+
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+
+
+.flip-card-back {
+  background-color: #003087;
+  color: red;
+  transform: rotateY(180deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  </style>
+  <title>sports-card</title>
+</head>
+
+<body>
+  <sports-card top="Yankees GOAT">
+    
+  </sports-card>
+
+  <script>
+//clones the card
+document.querySelector('.add').addEventListener('click', function(e) {
+  const div = document.querySelector('div');
+  let div2 = div.cloneNode(true);
+  div2.classList.add('div2');
+  document.body.appendChild(div2);
+  
+  
+});
+
+//deletes the clone of the card
+document.querySelector('.delete').addEventListener('click', function(e) {
+  const div2 = document.querySelector('.div2')
+  document.body.removeChild(div2);
+  
+  
+});
+
+//changes the name of the card
+document.querySelector('.changeName').addEventListener("click", function (e) {
+let rename = prompt("Rename")
+if (rename) {
+  document.querySelector('figcaption').innerText = rename;
+  
+}
+
+});
+
+
+  </script>
+</body>
+
+</html>
